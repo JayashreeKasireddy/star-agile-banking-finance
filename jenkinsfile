@@ -29,5 +29,12 @@ pipeline {
                 sh'docker build -t jaya677/banking-project .'
             }
         }
+        stage('Docker-login') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'dockerpassword', usernameVariable: 'dockerusername')]) {
+                sh'docker login -u ${dockerusername} -p ${dockerpassword}'
+                  }
+             }
+        }
     }
 }
