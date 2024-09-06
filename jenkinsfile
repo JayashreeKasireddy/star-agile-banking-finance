@@ -36,5 +36,10 @@ pipeline {
                   }
              }
         }
+        stage('Push-Image') {
+            steps {
+                sh'docker push jaya677/banking-project'
+              }
+         }
     }
 }
