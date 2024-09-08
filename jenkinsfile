@@ -43,12 +43,14 @@ pipeline {
          }
         stage('Config & Deployment') {
             steps {
-
+                withCredentials([aws(accessKeyVariable: 'awsaccesskey', credentialsId: 'awsaccesskey', secretKeyVariable: 'awssecretkey')]) {
                 dir('terraform-files') {
                 sh 'sudo chmod 600 
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
+                   }
+                } 
              }
          }
     }
