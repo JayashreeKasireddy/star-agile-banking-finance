@@ -41,13 +41,6 @@ pipeline {
                 sh'docker push jaya677/banking-finance'
               }
          }
-        stage('Config & Deployment') {
-            steps {
-
-                dir('terraform-files') {
-                sh 'sudo chmod 600 
-                sh 'terraform init'
-                sh 'terraform validate'
-                sh 'terraform apply --auto-approve'
     }
 }
+       
