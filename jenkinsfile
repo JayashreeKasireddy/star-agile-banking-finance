@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Create Docker Image') {
             steps {
-                sh'docker build -t jaya677/banking-project .'
+                sh'docker build -t jaya677/banking-finance .'
             }
         }
         stage('Docker-login') {
@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Push-Image') {
             steps {
-                sh'docker push jaya677/banking-project'
+                sh'docker push jaya677/banking-finance'
               }
          }
         stage('Config & Deployment') {
