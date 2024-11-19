@@ -45,7 +45,7 @@ pipeline {
             steps {
                 withCredentials([aws(accessKeyVariable: 'awsaccesskey', credentialsId: 'awsaccesskey', secretKeyVariable: 'awssecretkey')]) {
                 dir('terraform-files') {
-                sh 'sudo chmod 600 jaya-key.pem' 
+                sh 'sudo chmod 600 jayak-key.pem' 
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
