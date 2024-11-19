@@ -26,12 +26,12 @@ pipeline {
         }
         stage('Create Docker Image') {
             steps {
-                sh'docker build -t jaya677/banking .'
+                sh'docker build -t jaya677/banking'
             }
         }
         stage('Docker-login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'dockerpassword', usernameVariable: 'dockerusername')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-log', passwordVariable: 'dockerpassword', usernameVariable: 'dockerusername')]) {
                 sh'docker login -u ${dockerusername} -p ${dockerpassword}'
                   }
              }
