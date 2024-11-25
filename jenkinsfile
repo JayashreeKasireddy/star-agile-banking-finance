@@ -31,14 +31,14 @@ pipeline {
         }
         stage('Docker-login') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-log', passwordVariable: 'dockerpassword', usernameVariable: 'dockerusername')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'dockerpassword', usernameVariable: 'dockerusername')]) {
                 sh 'docker login -u ${dockerusername} -p ${dockerpassword}'
                 }
              }
         }
         stage('Push-Image') {
             steps {
-                sh'docker push jaya677/banking'
+                sh'docker push jaya677/banking:1.0'
               }
          }
         stage('Config & Deployment') {
