@@ -12,7 +12,7 @@ resource "aws_instance" "app-server" {
   provisioner "remote-exec" {
      connection {
      type        = "ssh"
-     user        = "terraform"
+     user        = "ubuntu"
      private_key = file("./jayak.pem") 
      host        = self.public_ip
      }
