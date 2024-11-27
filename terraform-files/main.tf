@@ -6,7 +6,7 @@ resource "aws_instance" "app-server" {
   connection {
      type = "ssh"
      user = "ubuntu"
-     private_key = file("~/.ssh/jayak.pem")
+     private_key = file("./jayak.pem")
      host = self.public_ip
      }
   provisioner "remote-exec" {
