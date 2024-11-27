@@ -13,7 +13,7 @@ resource "aws_instance" "app-server" {
      connection {
      type        = "ssh"
      user        = "terraform"
-     private_key = file("~/.ssh/jayak.pem") 
+     private_key = file("./jayak.pem") 
      host        = self.public_ip
      }
      inline = ["echo 'wait to start the instance'"]
