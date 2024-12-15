@@ -2,7 +2,7 @@ resource "aws_instance" "app-server" {
   ami = "ami-0e86e20dae9224db8"
   instance_type = "t2.micro"
   key_name = "jayak"
-  vpc_security_group_ids = ["sg-0af327f1d05d1d80d"]
+  vpc_security_group_ids = ["sg-0ff3a74e564c5e6bb"]
   connection {
      type = "ssh"
      user = "ubuntu"
