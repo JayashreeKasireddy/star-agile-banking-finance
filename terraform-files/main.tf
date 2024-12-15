@@ -16,9 +16,8 @@ resource "aws_instance" "app-server" {
      private_key = file("./jayak.pem")
      host = self.public_ip
      }
-  }
-  provisioner "remote-exec" {
-      inline = ["wait to start the instance']
+
+      inline = ["echo 'waiting to start the instance' "]
   }
   tags = {
       Name = "app-server"
