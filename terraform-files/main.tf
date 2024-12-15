@@ -16,6 +16,7 @@ resource "aws_instance" "app-server" {
      private_key = file("./jayak.pem")
      host = self.public_ip
      }
+     inline = ["echo 'wait to start the instance' "]
   }
   tags = {
       Name = "app-server"
