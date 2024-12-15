@@ -10,7 +10,11 @@ resource "aws_instance" "app-server" {
      host = self.public_ip
      }
   provisioner "remote-exec" {
-     inline = ["echo 'wait to start the instance' "]
+  connection {
+     type = "ssh"
+     user = "ubuntu"
+     private_key = file("./jayak.pem")
+     host = self.public_ip
   }
   tags = {
       Name = "app-server"
