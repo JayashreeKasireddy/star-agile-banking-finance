@@ -1,13 +1,13 @@
 resource "aws_instance" "app-server" {
   ami = "ami-0e86e20dae9224db8"
   instance_type = "t2.micro"
-  key_name = "jayak"
+  key_name = "jaya-key"
   vpc_security_group_ids = ["sg-0ff3a74e564c5e6bb"]
   provisioner "remote-exec" {
   connection {
      type = "ssh"
      user = "ubuntu"
-     private_key = file("./jayak.pem")
+     private_key = file("./jaya-key.pem")
      host = self.public_ip
      }
 
