@@ -15,6 +15,7 @@ resource "aws_instance" "app-server" {
      user = "ubuntu"
      private_key = file("./jayak.pem")
      host = self.public_ip
+     }
   }
   tags = {
       Name = "app-server"
