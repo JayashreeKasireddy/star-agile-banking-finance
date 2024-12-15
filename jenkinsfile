@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Push-Image') {
             steps {
-                sh'docker push jaya677/banking:1.0'
+                sh'docker push jaya677/banking:2.0'
               }
          }
         stage('Config & Deployment') {
