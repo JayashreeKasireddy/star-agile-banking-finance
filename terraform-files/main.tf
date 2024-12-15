@@ -3,12 +3,6 @@ resource "aws_instance" "app-server" {
   instance_type = "t2.micro"
   key_name = "jayak"
   vpc_security_group_ids = ["sg-0ff3a74e564c5e6bb"]
-  connection {
-     type = "ssh"
-     user = "ubuntu"
-     private_key = file("./jayak.pem")
-     host = self.public_ip
-     }
   provisioner "remote-exec" {
   connection {
      type = "ssh"
@@ -17,7 +11,7 @@ resource "aws_instance" "app-server" {
      host = self.public_ip
      }
 
-      inline = ["echo 'waiting to start the instance' "]
+      inline = ["echo 'waiting to start the instance'"]
   }
   tags = {
       Name = "app-server"
