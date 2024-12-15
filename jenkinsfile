@@ -43,7 +43,7 @@ pipeline {
          }
         stage('Config & Deployment') {
             steps {
-               withCredentials([aws(accessKeyVariable: 'accesskey', credentialsId: 'accessandsecretkey', secretKeyVariable: 'secretkey')]) {
+              withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'accessandsecretkey', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                 dir('terraform-files') {
                 sh 'sudo chmod 600 jayak.pem' 
                 sh 'terraform init'
